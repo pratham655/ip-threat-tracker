@@ -62,7 +62,7 @@ def home():
             country = geo.get("country", "Unknown")
             city = geo.get("city", "Unknown")
             isp = geo.get("isp", "Unknown")
-            org = geo.get("org", "Unknown")
+            org = geo.get("org") or geo.get("isp") or "Unknown"
 
             # ML
             pred = model.predict([[abuse_score, reports]])[0]
